@@ -1,0 +1,19 @@
+nav {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--primary-color);
+}
+
+nav>* {
+    color: var(--text-color-with-primary-color);
+    padding: 1rem;
+}
+
+.active {
+    border-bottom: 2px solid #fff;
+    box-shadow: inset 0px 0px 25px #e9e9e929;
+    transition: box-shadow .5s;
+}
