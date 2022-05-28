@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<div><h1>Home</h1></div>} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:name/details/:id" element={<div>We got an id</div>} />
         <Route path="*" element={<div><h1>404! Not Found</h1></div>} />
       </Routes>
     </BrowserRouter>
