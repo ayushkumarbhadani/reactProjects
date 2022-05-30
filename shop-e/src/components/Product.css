@@ -64,12 +64,12 @@
 }
 
 .discount-percent {
-    color: #0048ff;
+    color: var(--primary-color, #1d74ff);
     font-size: 1rem;
     font-weight: bold;
 }
 
 .brand {
-    color: var(--brand-name-color);
+    color: var(--brand-name-color, #999);
     font-weight: bold;
 }

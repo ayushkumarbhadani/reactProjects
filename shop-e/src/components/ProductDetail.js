@@ -22,7 +22,12 @@ const ProductDetail = () => {
             </div>
             <div className="product-details">
                 <span className="product-brand">{productDetails?.brand}</span>
-                <h2>{productDetails?.productName}</h2>
+                <h1 className="product-name">{productDetails?.productName}</h1>
+                <p>{productDetails?.price ?
+                    <span><span className="item-price">&#8377;{productDetails?.price}</span> &nbsp;<strike className="strike-price">&#8377;{productDetails?.mrp}</strike>&nbsp;<span className="discount-percent">({((parseFloat(productDetails?.price) / parseFloat(productDetails?.mrp)) * 100).toFixed(2)}% off)</span></span>
+                    :
+                    <span className="item-price">&#8377;{productDetails?.mrp}</span>}
+                </p>
             </div>
         </article >
     );
