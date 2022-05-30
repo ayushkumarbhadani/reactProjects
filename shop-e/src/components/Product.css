@@ -68,3 +68,8 @@
     font-size: 1rem;
     font-weight: bold;
 }
+
+.brand {
+    color: var(--brand-name-color);
+    font-weight: bold;
+}

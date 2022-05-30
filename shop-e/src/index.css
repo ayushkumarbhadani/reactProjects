@@ -21,4 +21,11 @@ a {
   --primary-color: #1d74ff;
   --text-color: #333;
   --text-color-with-primary-color: #eee;
+  --brand-name-color: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

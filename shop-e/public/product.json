@@ -2,7 +2,7 @@
     {
         "id": "7aa205bb-0615-4449-ae71-0175390f25ad",
         "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Silver",
-        "img": "images/2021-apple-iPad-pro-with-apple-M1-chip-11-inch:27.9-6cm-wifi-128gb-silver-5rd-generation.webp",
+        "img": "2021-apple-iPad-pro-with-apple-M1-chip-11-inch:27.9-6cm-wifi-128gb-silver-5rd-generation.webp",
         "price": "44,900",
         "mrp": "99,900",
         "rating": 4,
@@ -11,7 +11,7 @@
     {
         "id": "0e3a92ab-8701-462e-a2b7-07328c687c97",
         "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Silver",
-        "img": "images/2021-apple-iPad-pro-with-apple-M1-chip-11-inch:27.9-6cm-wifi-128gb-space-grey-3rd-generation.webp",
+        "img": "2021-apple-iPad-pro-with-apple-M1-chip-11-inch:27.9-6cm-wifi-128gb-space-grey-3rd-generation.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -19,7 +19,7 @@
     {
         "id": "c1d9a461-936e-428c-995d-3a5ed53d92fb",
         "productName": "Apple Airpods Pro",
-        "img": "images/apple-airpods-pro.webp",
+        "img": "apple-airpods-pro.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -27,7 +27,7 @@
     {
         "id": "1110fab9-e639-4a19-8485-c028b8d6b88c",
         "productName": "Apple Watch Series 7 Blue Aluminium Case",
-        "img": "images/apple-watch-series-7-blue-aluminium-case.webp",
+        "img": "apple-watch-series-7-blue-aluminium-case.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -35,7 +35,7 @@
     {
         "id": "26c4b9f7-ffb0-47f2-97bc-ff178d7a9d5e",
         "productName": "iphone 12 64gb",
-        "img": "images/iphone-12-64gb.webp",
+        "img": "iphone-12-64gb.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -43,7 +43,7 @@
     {
         "id": "18646b5f-1ea6-4ea8-bfeb-bccf91b0c4b1",
         "productName": "iphone 12 64gb Red Edition",
-        "img": "images/iphone-12-64gb-red-edition.webp",
+        "img": "iphone-12-64gb-red-edition.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -51,7 +51,7 @@
     {
         "id": "d699603a-0f3e-467b-99fb-d7648e2395ed",
         "productName": "iphone 12 128gb Black",
-        "img": "images/iphone-12-128gb-black.webp",
+        "img": "iphone-12-128gb-black.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"
@@ -59,7 +59,7 @@
     {
         "id": "ff59ef12-a350-4b25-ba73-ff7a30956a3d",
         "productName": "iphone 13 Pro Max 128gb",
-        "img": "images/iphone-13-pro-max-128gb.webp",
+        "img": "iphone-13-pro-max-128gb.webp",
         "mrp": "99,900",
         "rating": 4.5,
         "brand": "Apple"

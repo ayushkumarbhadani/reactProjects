@@ -8,9 +8,9 @@ const Products = () => {
     useEffect(() => {
         (async function () {
             try {
-                const response = await fetch("./product.json");
+                const response = await fetch("/product.json");
                 const data = await response.json();
-                // console.log(data);
+                console.log(data);
                 setData(data);
                 setisLoading(false);
             }
@@ -41,7 +41,7 @@ const Products = () => {
                     <Link to={`${encodeURIComponent(item.productName.split(" ").join("-"))}/details/${item.id}`} key={item.id}>
                         <div className="card">
                             <div className="card-img">
-                                <img src={item.img} alt={item.productName} />
+                                <img src={`/images/${item.img}`} alt={item.productName} />
                             </div>
                             <div className="desc">
                                 <span className="brand">{item.brand}</span>
