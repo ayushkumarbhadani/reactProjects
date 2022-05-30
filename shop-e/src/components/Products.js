@@ -41,7 +41,7 @@ const Products = () => {
                     <Link to={`${encodeURIComponent(item.productName.split(" ").join("-"))}/details/${item.id}`} key={item.id}>
                         <div className="card">
                             <div className="card-img">
-                                <img src={item.img} />
+                                <img src={item.img} alt={item.productName} />
                             </div>
                             <div className="desc">
                                 <span className="brand">{item.brand}</span>
