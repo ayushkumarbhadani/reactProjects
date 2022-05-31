@@ -16,7 +16,7 @@ const ProductDetail = () => {
     }, [id]);
     return (
         // productDetails ? <RenderProduct /> : <h1>Loading...</h1>
-        < article className="product" >
+        <article className="product">
             <div className="product-img">
                 <img src={`/images/${productDetails?.img}`} alt={productDetails?.productName} />
             </div>
@@ -28,6 +28,8 @@ const ProductDetail = () => {
                     :
                     <span className="item-price">&#8377;{productDetails?.mrp}</span>}
                 </p>
+                <br></br>
+                <p>Size: </p>
             </div>
         </article >
     );
