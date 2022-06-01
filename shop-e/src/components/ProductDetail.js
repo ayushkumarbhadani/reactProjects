@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FaStar, FaStarHalfAlt, FaRegStar, FaSearchLocation } from "react-icons/fa";
 import "./ProductDetail.css";
 const fetchData = async (id, setProductDetails, setIsLoadingFail) => {
     try {
@@ -48,6 +49,25 @@ const ProductDetail = () => {
 }
 
 const RenderProduct = ({ productDetails }) => {
+    const [pincode, setPincode] = useState("");
+    const [deleveryDate, setDeleveryDate] = useState("");
+    function checkDelevery(e) {
+        e.preventDefault();
+        if (pincode.length != 6 || isNaN(pincode) || /\s/.test(e.target.value)) {       // /\s/ is a regex commant to check for space between string
+            console.log("Please provide correct pin")
+            setDeleveryDate(false);
+            return;
+        }
+        console.log("Delevery within 2 days")
+        setDeleveryDate("delevery within 2 days, Delevery chargers: Rs 40");
+        return;
+        //check for delevery avalibility in that pincode // use pincode useState;
+    }
+    function checkPincode(e) {
+        if (isNaN(e.target.value) || /\s/.test(e.target.value)) return;
+        setPincode(e.target.value);
+    }
+    let rating = { count: productDetails?.rating };
     return (
         <article className="product">
             <div className="product-img">
@@ -61,6 +81,15 @@ const RenderProduct = ({ productDetails }) => {
                     :
                     <span className="item-price">&#8377;{productDetails?.mrp}</span>}
                 </p>
+
+                <p className="rating-stars" title={`Ratings: ${productDetails.rating.count}`}>
+                    {ratings(rating)}
+                    {ratings(rating)}
+                    {ratings(rating)}
+                    {ratings(rating)}
+                    {ratings(rating)}
+                </p>
+
                 <br></br>
                 <div className="other-varients">
                     <div>Size: {
@@ -70,21 +99,41 @@ const RenderProduct = ({ productDetails }) => {
                         getOtherVarients(productDetails.color, productDetails)
                     }</div>
                 </div>
+                <div>
+                    <form onSubmit={checkDelevery} className="check-delevery-form">
+                        <label>
+                            <FaSearchLocation />
+                            <input type="text" name="name" onChange={checkPincode} value={pincode} placeholder="Enter delevery pincode" />
+                        </label>
+                        <input type="submit" value="Check" />
+                    </form>
+                    <div className="is-delevery-available">{deleveryDate ? <div className="product-available-at-location">{deleveryDate}</div> : (deleveryDate === false ? <div className="incorrect-pincode">Please enter correct Pincode</div> : null)}</div>
+                </div>
                 <button className="primary-btn-250px">Add to Cart</button>
             </div>
         </article >
     )
 }
-
+function ratings(rating) {
+    let count = rating.count;
+    if (count > 0) {
+        if (count < 1) {
+            return <FaStarHalfAlt />
+        }
+        rating.count--;
+        return <FaStar />
+    }
+    else {
+        rating.count--;
+        return <FaRegStar />
+    }
+}
 function getOtherVarients(otherVarients, currentVarient) {
     let Temp = [];
     for (const item in otherVarients) {
         Temp.push(<Link className={currentVarient.id === otherVarients[item].id ? "current-varient other-varient-colors" : "other-varient-colors"} key={otherVarients[item].id} to={`/products/${encodeURIComponent(otherVarients[item].productName.split(" ").join("-"))}/details/${otherVarients[item].id}`}>{checkIfColor(item) ? <span className="color-box-details-page" style={{ backgroundColor: item }}></span> : item}</Link >)
     }
-    // console.log(Temp);
     return Temp;
-    // var MyComponent = Components[type + "Component"];
-    // return <MyComponent />;
 }
 
 function checkIfColor(str) {

@@ -25,10 +25,12 @@
     margin: 1rem 0;
 }
 
-.other-varients div {
-    /* border: 1px dotted orange; */
-    margin: 2rem .5rem;
-    /* padding: .5rem 1rem; */
+.other-varients {
+
+    margin: 2rem 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .other-varients a {
@@ -36,10 +38,17 @@
     font-size: .8rem;
     padding: .5rem 1rem;
     margin-right: 5px;
+    transition: all .5s;
+}
+
+.other-varients a:hover {
+    border: 1px solid orange !important;
+    background-color: rgba(255, 166, 0, 0.383);
+
 }
 
 .current-varient {
-    border: 2px solid orange !important;
+    border: 1px solid orange !important;
     background-color: rgba(255, 166, 0, 0.383);
     font-weight: bold;
 }
@@ -72,4 +81,51 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+}
+
+.rating-stars {
+    margin-top: 1rem;
+}
+
+.check-delevery-form input {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    padding: .5rem .5rem;
+    border-bottom: 1px solid var(--primary-color);
+    font-weight: bold;
+}
+
+.check-delevery-form input:focus .check-delevery-form input {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.check-delevery-form [type="submit"] {
+    color: var(--primary-color);
+}
+
+.is-delevery-available {
+    padding-top: 1rem;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
+
+.incorrect-pincode {
+    /* background-color: #fb2a2a; */
+    color: #ff0000;
+    font-weight: bold;
+    /* border: 1px dotted #820e0e; */
+    padding: .5rem;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.product-available-at-location {
+    /* background-color: green; */
+    color: #00b700;
+    font-weight: bold;
+    /* border: 1px dotted #033d03; */
+    padding: .5rem;
+    border-radius: 5px;
+    width: fit-content;
 }

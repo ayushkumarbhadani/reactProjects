@@ -26,3 +26,11 @@
   border: none;
   cursor: pointer;
 }
+
+* {
+  color: #333;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}

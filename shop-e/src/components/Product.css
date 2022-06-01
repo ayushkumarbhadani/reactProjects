@@ -49,7 +49,7 @@
 }
 
 .rating-stars>* {
-    color: gold;
+    fill: gold;
     stroke-width: 2px;
 }
 
