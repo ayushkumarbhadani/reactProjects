@@ -5,5 +5,33 @@
     "price": "44,900",
     "mrp": "99,900",
     "rating": 4,
-    "brand": "Apple"
+    "brand": "Apple",
+    "size": {
+        "128GB": {
+            "id": "7aa205bb-0615-4449-ae71-0175390f25ad",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Silver"
+        },
+        "256GB": {
+            "id": "0917d627-e0d9-41a1-8960-522b48e2da5f",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (256GB) Silver"
+        },
+        "512GB": {
+            "id": "11a75e93-11de-47a4-9212-0fea562f5f0e",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (512GB) Silver"
+        },
+        "2TB": {
+            "id": "5d9000bb-da96-416c-86e1-c5f36fe19f3d",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (2TB) Silver"
+        }
+    },
+    "color": {
+        "#333333": {
+            "id": "7aa205bb-0615-4449-ae71-0175390f25ad",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Silver"
+        },
+        "#653454": {
+            "id": "a38c90cb-5166-46a4-80f8-b61dacfac43d",
+            "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Space Gray"
+        }
+    }
 }

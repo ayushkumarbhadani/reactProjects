@@ -24,3 +24,52 @@
     font-size: 1.2rem;
     margin: 1rem 0;
 }
+
+.other-varients div {
+    /* border: 1px dotted orange; */
+    margin: 2rem .5rem;
+    /* padding: .5rem 1rem; */
+}
+
+.other-varients a {
+    border: 1px dotted orange;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    margin-right: 5px;
+}
+
+.current-varient {
+    border: 2px solid orange !important;
+    background-color: rgba(255, 166, 0, 0.383);
+    font-weight: bold;
+}
+
+.somthing-went-wrong {
+    height: fit-content;
+    text-align: center;
+    padding: 3rem;
+}
+
+.somthing-went-wrong a {
+    display: inline-block;
+    background-color: var(--primary-color);
+    padding: .5rem 1rem;
+    color: var(--text-color-white);
+    font-size: .8rem;
+    margin-top: 1rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.color-box-details-page {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.other-varient-colors {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

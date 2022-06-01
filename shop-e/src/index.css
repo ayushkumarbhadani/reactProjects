@@ -20,6 +20,7 @@ a {
 :root {
   --primary-color: #1d74ff;
   --text-color: #333;
+  --text-color-white: #fff;
   --text-color-with-primary-color: #eee;
   --brand-name-color: #999;
 }
