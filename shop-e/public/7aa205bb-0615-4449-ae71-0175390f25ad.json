@@ -33,5 +33,17 @@
             "id": "a38c90cb-5166-46a4-80f8-b61dacfac43d",
             "productName": "2021 Apple iPad Pro with Apple M1 chip (128GB) Space Gray"
         }
-    }
+    },
+    "aboutProduct": [
+        " Apple M1 chip for next-level performance",
+        "Brilliant 32.77 cm (12.9-inch) Liquid Retina XDR display with ProMotion, True Tone, and P3 wide color",
+        "TrueDepth camera system featuring Ultra Wide camera with Center Stage",
+        "12MP Wide camera, 10MP Ultra Wide camera, and LiDAR Scanner for immersive AR",
+        "Stay connected with ultrafast Wi-Fi and 4GLTE",
+        "Go further with all-day battery life",
+        "Thunderbolt port for connecting to fast external storage, displays, and docks",
+        "Face ID for secure authentication",
+        "Four speaker audio and five studio-quality microphones",
+        "Support for Apple Pencil (2nd generation), Magic Keyboard, and Smart Keyboard Folio"
+    ]
 }

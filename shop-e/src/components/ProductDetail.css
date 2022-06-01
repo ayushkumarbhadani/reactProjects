@@ -129,3 +129,23 @@
     border-radius: 5px;
     width: fit-content;
 }
+
+.about-product {
+    border-top: 1px solid #333;
+    padding: 1rem 0;
+    margin-top: 3rem;
+}
+
+.about-product h4 {
+    margin-bottom: 1rem;
+}
+
+.about-product ul {
+    margin-left: 1rem;
+    width: 500px;
+}
+
+.about-product li {
+    margin-top: .5rem;
+    line-height: 1.5rem;
+}

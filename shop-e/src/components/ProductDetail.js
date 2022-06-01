@@ -110,6 +110,18 @@ const RenderProduct = ({ productDetails }) => {
                     <div className="is-delevery-available">{deleveryDate ? <div className="product-available-at-location">{deleveryDate}</div> : (deleveryDate === false ? <div className="incorrect-pincode">Please enter correct Pincode</div> : null)}</div>
                 </div>
                 <button className="primary-btn-250px">Add to Cart</button>
+                <div className="about-product">
+
+                    <h4>About the Product</h4>
+
+                    <ul>
+                        {productDetails.aboutProduct.map(item => {
+
+                            return <li key={Math.random()}>{item}</li>;
+
+                        })}
+                    </ul>
+                </div>
             </div>
         </article >
     )
