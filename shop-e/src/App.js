@@ -6,17 +6,19 @@ import Nav from "./components/Navbar";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 function App() {
   const [user, setUser] = useState();
   return (
     <BrowserRouter>
-      <Nav activeClassName="active" />
+      <Nav activeClassName="active" user={user} />
       <main>
-        <Routes style={{ marginTop: "60px" }}>
+        <Routes>
           <Route path="/" element={<div><h1>Home</h1></div>} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:name/details/:id" element={<ProductDetail />} />
-          <Route path="/login" element={<Login setUser={setUser} user={user} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/logout" element={<Logout setUser={setUser} />} />
           <Route path="*" element={<div><h1>404! Not Found</h1></div>} />
         </Routes>
       </main>
