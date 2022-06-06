@@ -11,12 +11,47 @@ nav {
 }
 
 nav>* {
-    color: var(--text-color-with-primary-color);
     padding: 1rem;
+}
+
+nav * {
+    color: var(--text-color-with-primary-color);
+
 }
 
 .active {
     border-bottom: 2px solid #fff;
     box-shadow: inset 0px 0px 25px #e9e9e929;
     transition: box-shadow .5s;
+}
+
+@media only screen and (max-width: 600px) {
+    nav {
+        justify-content: space-evenly;
+        top: unset;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    nav>* {
+        padding: 1rem 2rem;
+    }
+
+    .mobile-nav-name {
+        display: none;
+    }
+
+    .mobile-nav-icon>* {
+        fill: #fff;
+    }
+
+    .mobile-nav-icon {
+        font-size: 1.2rem;
+    }
+
+    .active {
+        border-bottom: 0;
+        border-top: 2px solid #fff;
+    }
 }

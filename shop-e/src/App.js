@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import './App.css';
 // import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ function App() {
       <Nav activeClassName="active" user={user} />
       <main>
         <Routes>
-          <Route path="/" element={<div><h1>Home</h1></div>} />
+          <Route path="/" element={<h3 style={{ textAlign: "center" }}><Link to="/products" className="primary-btn">Click here to Go to Products Page</Link></h3>} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:name/details/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="*" element={<div><h1>404! Not Found</h1></div>} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

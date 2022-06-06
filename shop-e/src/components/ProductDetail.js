@@ -9,8 +9,6 @@ const fetchData = async (id, setProductDetails, setIsLoadingFail) => {
             const data = await res.json();
             setProductDetails(data);
         }
-
-        // console.log(data);
     }
     catch (err) {
         console.log(err);
@@ -27,24 +25,6 @@ const ProductDetail = () => {
     }, [id, isLoadingFail]);
     return (
         productDetails ? <RenderProduct productDetails={productDetails} /> : (isLoadingFail ? <div className="somthing-went-wrong"><h1>Somthing Went Wrong!</h1><Link to="/">Back Home</Link> </div> : <h1>Loading...</h1>)
-        // <article className="product">
-        //     <div className="product-img">
-        //         <img src={`/images/${productDetails?.img}`} alt={productDetails?.productName} />
-        //     </div>
-        //     <div className="product-details">
-        //         <span className="product-brand">{productDetails?.brand}</span>
-        //         <h1 className="product-name">{productDetails?.productName}</h1>
-        //         <p>{productDetails?.price ?
-        //             <span><span className="item-price">&#8377;{productDetails?.price}</span> &nbsp;<strike className="strike-price">&#8377;{productDetails?.mrp}</strike>&nbsp;<span className="discount-percent">({((parseFloat(productDetails?.price) / parseFloat(productDetails?.mrp)) * 100).toFixed(2)}% off)</span></span>
-        //             :
-        //             <span className="item-price">&#8377;{productDetails?.mrp}</span>}
-        //         </p>
-        //         <br></br>
-        //         <p>Size: {
-        //             Object?.keys(productDetails?.size)
-        //         }</p>
-        //     </div>
-        // </article >
     );
 }
 
@@ -92,12 +72,16 @@ const RenderProduct = ({ productDetails }) => {
 
                 <br></br>
                 <div className="other-varients">
-                    <div>Size: {
-                        getOtherVarients(productDetails.size, productDetails)
-                    }</div>
-                    <div>Color: {
-                        getOtherVarients(productDetails.color, productDetails)
-                    }</div>
+                    <div>Size:
+                        <span>
+                            {getOtherVarients(productDetails.size, productDetails)}
+                        </span>
+                    </div>
+                    <div>Color:<br />
+                        <span>
+                            {getOtherVarients(productDetails.color, productDetails)}
+                        </span>
+                    </div>
                 </div>
                 <div>
                     <form onSubmit={checkDelevery} className="check-delevery-form">
