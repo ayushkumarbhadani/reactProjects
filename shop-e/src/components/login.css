@@ -53,3 +53,28 @@
 .login-form .submit-btn {
     width: 100%;
 }
+
+.demo-notice,
+.demo-notice {
+    margin-top: 2rem;
+    font-size: .8rem;
+    color: #666666;
+    background-color: yellow;
+    padding: 1rem 3rem;
+}
+
+.incorrect-auth {
+    border: 1px solid red !important;
+}
+
+.incorrect-auth-alert {
+    background-color: red;
+    padding: .5rem;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: .8rem;
+    border-radius: 5px;
+    user-select: none;
+}
