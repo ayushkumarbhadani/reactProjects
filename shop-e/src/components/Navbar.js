@@ -33,6 +33,10 @@ const Navbar = ({ user }) => {
                 <span className="mobile-nav-name">Logout</span>
                 <span className="mobile-nav-icon"><FaUserCircle /></span>
             </NavLink>}
+            <form className="mobile-nav-name nav-search-form">
+                <input type="search" className="nav-search" />
+                <button type="submit" >Search</button>
+            </form>
         </nav>
     );
 }
