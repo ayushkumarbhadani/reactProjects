@@ -1,6 +1,7 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaHome, FaListUl, FaUserCircle } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 
 import "./Navbar.css";
 const Navbar = ({ user }) => {
@@ -37,6 +38,7 @@ const Navbar = ({ user }) => {
                 <input type="search" className="nav-search" />
                 <button type="submit" >Search</button>
             </form>
+            <NavLink to="/cart"><FiShoppingCart/></NavLink>
         </nav>
     );
 }

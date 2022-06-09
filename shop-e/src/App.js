@@ -5,6 +5,7 @@ import './App.css';
 import Nav from "./components/Navbar";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
+import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<h3 style={{ textAlign: "center" }}><Link to="/products" className="primary-btn">Click here to Go to Products Page</Link></h3>} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:name/details/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/logout" element={<Logout setUser={setUser} />} />
           <Route path="*" element={<div><h1>404! Not Found</h1></div>} />

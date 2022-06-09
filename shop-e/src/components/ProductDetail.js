@@ -33,7 +33,7 @@ const RenderProduct = ({ productDetails }) => {
     const [deleveryDate, setDeleveryDate] = useState("");
     function checkDelevery(e) {
         e.preventDefault();
-        if (pincode.length != 6 || isNaN(pincode) || /\s/.test(e.target.value)) {       // /\s/ is a regex commant to check for space between string
+        if (pincode.length !== 6 || isNaN(pincode) || /\s/.test(e.target.value)) {       // /\s/ is a regex commant to check for space between string
             console.log("Please provide correct pin")
             setDeleveryDate(false);
             return;
@@ -133,10 +133,10 @@ function getOtherVarients(otherVarients, currentVarient) {
 }
 
 function checkIfColor(str) {
-    if (str[0] != '#')
+    if (str[0] !== '#')
         return false;
 
-    if (!(str.length == 4 || str.length == 7))
+    if (!(str.length === 4 || str.length === 7))
         return false;
 
     for (let i = 1; i < str.length; i++)
