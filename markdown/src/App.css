@@ -1,0 +1,81 @@
+main{
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  height: 90vh;
+  margin-top: 50px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.main-textarea{
+  width: 50%;
+
+}
+.markdown-output{
+  padding: 1rem;
+  width: 50%;
+  box-shadow: 0 0 5px #ddd;
+  overflow: scroll;
+}
+
+
+/* Some styling for markdown rendered elements */
+
+img{
+  width: 100%;
+  object-fit: scale-down;
+}
+blockquote{
+  border-left: 5px solid #00b3ff;
+  background-color: #f0fdff;
+  padding: 1rem;
+}
+table, th,tr,td{
+  border:1px solid #333;
+}
+table{
+  border-collapse: collapse;
+  padding: 1rem;
+  margin:1rem 0;
+}
+td,th{
+  padding: 1rem;
+}
+input,textarea{
+  padding: .5rem 1rem;
+  color: #333;
+  background-color: #f0fdff;
+  border: 1px solid #4de7fb;
+  border-radius: 5px;
+  margin: .5rem 0;
+}
+button,input[type="submit"]{
+  padding: .5rem 1rem;
+  color: #333;
+  background-color: #4dfbb8;
+  border: 1px solid #49f56e;
+  /* color: #fff; */
+  font-weight: bold;
+  border-radius: 5px;
+  margin: .5rem 0;
+  box-shadow: 1px 1px 5px #2cf8aa;
+}
+button:hover,input[type="submit"]:hover{
+  background-color: #2cf8aa;
+  box-shadow: inset 1px 1px 5px #2cf8aa;
+}
+input[type="reset"]{
+  padding: .5rem 1rem;
+  color: #333;
+  background-color: #fb4d4d;
+  border: 1px solid #f54949;
+  /* color: #fff; */
+  font-weight: bold;
+  border-radius: 5px;
+  margin: .5rem 0;
+  box-shadow: 1px 1px 5px #f82c2c;
+}
+input[type="reset"]:hover{
+  background-color: #f82c2c;
+  box-shadow: inset 1px 1px 5px #f82c2c;
+}
