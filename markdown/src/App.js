@@ -4,12 +4,18 @@ import rehypeRaw from "rehype-raw";
 import {useState} from "react";
 import remarkGfm from 'remark-gfm'
 const App=()=>{
-  const [markdownText,setMarkdownText]=useState();
+  const [markdownText,setMarkdownText]=useState(
+    `You can write MARKDOWN syntex here and then this app will translate it to MARKDOWN Output. 
+    <p>
+    To learn more about markdown you can visit this link: <a href="https://www.markdownguide.org/getting-started/" target="blank" >https://www.markdownguide.org/getting-started/</a> 
+    </p>
+    `);
+    
   return(
     <main>
       <textarea className="main-textarea" placeholder="Write your markdown text here.." value={markdownText} onChange={(e)=>{setMarkdownText(e.target.value)}}></textarea>
       <article className="markdown-output">
-        <Markdown remarkPlugins={[[remarkGfm, {singleTilde: false}]]}  rehypePlugins={[rehypeRaw]}>{markdownText}</Markdown>
+        <Markdown linkTarget={'_blank'} remarkPlugins={[[remarkGfm, {singleTilde: false}]]}  rehypePlugins={[rehypeRaw]}>{markdownText}</Markdown>
       </article>
     </main>
   );
