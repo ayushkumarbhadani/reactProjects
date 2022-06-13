@@ -1,23 +1,77 @@
 import {useState,useEffect} from "react";
 import {FcSearch} from "react-icons/fc";
 import {FiDownload} from "react-icons/fi";
+import {AiOutlineInstagram} from "react-icons/ai";
 import "./App.css";
 
 const App=()=>{
-  const [data,setData]=useState(null);
-  const [search,setSearch]=useState("");
-  const fetchData=async(URL)=>{
-    const res=await fetch(URL);
-    const upcommingData= await res.json();
-    console.log(res);
-    console.log(upcommingData);
-  }
-  useEffect(()=>{
-    // fetchData(`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_API}`);
+  const [isLoading,setIsLoading]=useState(true);
+  const [data,setData]=useState([]);
 
+  const [dataSet1,setDataSet1]=useState([]);
+  const [dataSet2,setDataSet2]=useState([]);
+  const [dataSet3,setDataSet3]=useState([]);
+  
+const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_API}`;
+  const [search,setSearch]=useState("");
+  useEffect(()=>{
+    (async()=>{
+      try{
+        setIsLoading(true);
+        const res=await fetch(URL);
+        const upcommingData= await res.json();
+        await setData(upcommingData);
+        setIsLoading(false);
+        
+      }catch(err){
+        console.log(err);
+      }
+    })();
   },[]);
+  useEffect(()=>{
+    if(!isLoading){
+      adjustArray(data);
+    }
+  },[data]);
+  const adjustArray=(data)=>{
+    console.log(data);
+    setDataSet1((oldData)=>{
+      const newData=data.filter((item,index)=>{
+        if(index%3===0)
+        {
+          return item;
+        }
+      });
+      return [...oldData,...newData];
+    });
+
+    setDataSet2((oldData)=>{
+      const newData=data.filter((item,index)=>{
+        if(index%3===1)
+        {
+          return item;
+        }
+      });
+      return [...oldData,...newData];
+    });
+
+    setDataSet3((oldData)=>{
+      const newData=data.filter((item,index)=>{
+        if(index%3===2)
+        {
+          return item;
+        }
+      });
+      return [...oldData,...newData];
+    });
+    console.log(dataSet1);
+    console.log(dataSet2);
+    console.log(dataSet3);
+  }
+
   return(
     <>
+    {/* <button onClick={(e)=>setData(Number(data + 1))}>Tst</button> */}
     <nav>
       <div className="serach-wrapper">
         <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
@@ -25,62 +79,73 @@ const App=()=>{
       </div>
     </nav>
     <main className="image-main-container">
+      {isLoading?<h1>Loading...</h1>:null}
       <section className="row-1">
-
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655043126269-d93dc7917a1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3087&q=80" alt="random img"/>
+        {!isLoading && dataSet1.map((item)=>{
+          return(
+            <div className="img-container" key={item.id}>
+          <img src={item.urls.full} alt={item.urls.full}/>
           <div className="img-desc">
             <div className="creater-profile">
-              <a href="#">
-              <img src="https://images.unsplash.com/profile-1650865374146-e22aed4e040fimage?ixlib=rb-1.2.1&crop=faces&fit=crop&w=128&h=128"/>
-              <span>Creater Name</span>
+              <a href={item.user.links.html} target="_blank">
+              <img src={item.user.profile_image.large}/>
+              <span>{item.user.name}</span>
               </a>
             </div>
-            <a href="#" download="true"><FiDownload/></a>
+            <div className="desc-links">
+              <a href={item.urls.full} download="true" target="_blank"><FiDownload/></a>
+              <a href={`https://www.instagram.com/${item.user.instagram_username}`} target='_blank'><AiOutlineInstagram/></a>
+            </div>
           </div>
         </div>
-
+          )
+        })}
         
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655041138326-f25a82627848?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        </section>
+      </section>
 
-        <section className="row-2">
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655043126269-d93dc7917a1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3087&q=80" alt="random img"/>
+      <section className="row-2">
+      {!isLoading && dataSet2.map((item)=>{
+          return(
+            <div className="img-container" key={item.id}>
+          <img src={item.urls.full} alt={item.urls.full}/>
+          <div className="img-desc">
+            <div className="creater-profile">
+              <a href={item.user.links.html} target="_blank">
+              <img src={item.user.profile_image.large}/>
+              <span>{item.user.name}</span>
+              </a>
+            </div>
+            <div className="desc-links">
+              <a href={item.urls.full} download="true" target="_blank"><FiDownload/></a>
+              <a href={`https://www.instagram.com/${item.user.instagram_username}`} target='_blank'><AiOutlineInstagram/></a>
+            </div>
+          </div>
         </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655041138326-f25a82627848?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        </section>
+          )
+        })}
+      </section>
 
-        <section className="row-3">
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655043126269-d93dc7917a1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3087&q=80" alt="random img"/>
+      <section className="row-3">
+      {!isLoading && dataSet3.map((item)=>{
+          return(
+            <div className="img-container" key={item.id}>
+          <img src={item.urls.full} alt={item.urls.full}/>
+          <div className="img-desc">
+            <div className="creater-profile">
+              <a href={item.user.links.html} target="_blank">
+              <img src={item.user.profile_image.large}/>
+              <span>{item.user.name}</span>
+              </a>
+            </div>
+            <div className="desc-links">
+              <a href={item.urls.full} download="true" target="_blank"><FiDownload/></a>
+              <a href={`https://www.instagram.com/${item.user.instagram_username}`} target='_blank'><AiOutlineInstagram/></a>
+            </div>
+          </div>
         </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655041138326-f25a82627848?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        <div className="img-container">
-          <img src="https://images.unsplash.com/photo-1655012325191-cbc22182fa9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1624&q=80" alt="random img"/>
-        </div>
-        </section>
+          )
+        })}
+      </section>
     </main>
     </>
   );

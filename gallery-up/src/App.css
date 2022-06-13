@@ -52,6 +52,7 @@ nav{
 .img-container{
   width: 280px;
   position: relative;
+  overflow: hidden;
 }
 .img-container:hover .img-desc{
   transform: translateY(0);
@@ -66,7 +67,7 @@ nav{
 .img-desc{
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 3px;
   padding: 1rem;
   background-color: #333333aa;
   display: flex;
@@ -86,4 +87,8 @@ nav{
   height: 32px;
   width: 32px;
   border-radius: 50%;
+}
+.desc-links{
+  display: flex;
+  gap: 1rem;
 }
