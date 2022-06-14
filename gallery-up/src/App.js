@@ -95,6 +95,7 @@ const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_AP
             <div className="desc-links">
               <a href={item.urls.full} download="true" target="_blank"><FiDownload/></a>
               <a href={`https://www.instagram.com/${item.user.instagram_username}`} target='_blank'><AiOutlineInstagram/></a>
+              
             </div>
           </div>
         </div>
