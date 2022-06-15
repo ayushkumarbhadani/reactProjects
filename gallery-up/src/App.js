@@ -6,6 +6,7 @@ import "./App.css";
 
 const App=()=>{
   const [isLoading,setIsLoading]=useState(true);
+  const [isSearching,setIsSearching]=useState(false);
   const [data,setData]=useState([]);
 
   const [dataSet1,setDataSet1]=useState([]);
@@ -14,26 +15,39 @@ const App=()=>{
   
 const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_API}`;
   const [search,setSearch]=useState("");
-  useEffect(()=>{
-    (async()=>{
+
+  const fetchData=async(URL,isSearching)=>{
+      console.log(isSearching);
       try{
         setIsLoading(true);
         const res=await fetch(URL);
         const upcommingData= await res.json();
-        await setData(upcommingData);
+        console.log(`isSearching:${isSearching}`);
+        if(isSearching){
+          await setData(upcommingData.results);
+          console.log(data);
+        }
+        else{
+          await setData(upcommingData);
+          
+        }
         setIsLoading(false);
         
       }catch(err){
         console.log(err);
       }
-    })();
+  }
+
+  useEffect(()=>{
+    fetchData(URL);
   },[]);
+
   useEffect(()=>{
     if(!isLoading){
-      adjustArray(data);
+      adjustArray(data,isSearching);
     }
   },[data]);
-  const adjustArray=(data)=>{
+  const adjustArray=(data,isSearching=false)=>{
     console.log(data);
     setDataSet1((oldData)=>{
       const newData=data.filter((item,index)=>{
@@ -42,6 +56,9 @@ const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_AP
           return item;
         }
       });
+      if(isSearching){
+        return [...newData];
+      }
       return [...oldData,...newData];
     });
 
@@ -52,6 +69,9 @@ const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_AP
           return item;
         }
       });
+      if(isSearching){
+        return [...newData];
+      }
       return [...oldData,...newData];
     });
 
@@ -62,20 +82,30 @@ const URL=`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_AP
           return item;
         }
       });
+      if(isSearching){
+        return [...newData];
+      }
       return [...oldData,...newData];
     });
     console.log(dataSet1);
     console.log(dataSet2);
     console.log(dataSet3);
+    setIsSearching(false);
   }
-
+  useEffect(()=>{
+    // await setIsSearching(true);
+    console.log(isSearching);
+    if(isSearching){
+      fetchData(`https://api.unsplash.com/search/photos/?query=${search}&client_id=${process.env.REACT_APP_API}`,isSearching);
+    }
+  },[isSearching]);
   return(
     <>
     {/* <button onClick={(e)=>setData(Number(data + 1))}>Tst</button> */}
     <nav>
       <div className="serach-wrapper">
         <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-        <button><FcSearch/></button>
+        <button onClick={()=>{setIsSearching(true)}}><FcSearch/></button>
       </div>
     </nav>
     <main className="image-main-container">
