@@ -29,12 +29,16 @@ nav{
 }
 .serach-wrapper button{
   border: none;
-  background-color: transparent;
+  background-color: #cff1fa;
+  border-radius: 25px;
+  
   cursor: pointer;
   padding: 0 1rem;
   font-size: 1rem;
 }
-
+.serach-wrapper:focus-within>button{
+  border:1px solid #0090b8;
+}
 .image-main-container{
   width: 900px;
   /* height: 200px; */
